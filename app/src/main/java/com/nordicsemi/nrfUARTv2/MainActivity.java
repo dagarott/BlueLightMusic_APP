@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2015, Nordic Semiconductor
  * All rights reserved.
@@ -31,6 +30,7 @@ import java.util.Date;
 
 import com.nordicsemi.nrfUARTv2.UartService;
 
+import android.os.CountDownTimer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -67,13 +67,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+
+
 import static android.widget.CompoundButton.*;
 
 public class MainActivity extends Activity implements RadioGroup.OnCheckedChangeListener {
+    public static final String TAG = "nRFUART";
     private static final int REQUEST_SELECT_DEVICE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
     private static final int UART_PROFILE_READY = 10;
-    public static final String TAG = "nRFUART";
     private static final int UART_PROFILE_CONNECTED = 20;
     private static final int UART_PROFILE_DISCONNECTED = 21;
     private static final int STATE_OFF = 10;
@@ -86,402 +88,10 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
     private BluetoothAdapter mBtAdapter = null;
     //private ListView messageListView;
     //private ArrayAdapter<String> listAdapter;
-    private Button btnConnectDisconnect, btnEffect1, btnEffect2, btnEffect3, btnEffect4, btnEffect5,
-            btnEffect6, btnMusic1, btnMusic2, btnMusic3, btnPlay, btnStop;
-    private ToggleButton btnToggle1, btnToggle2;
-    private EditText edtMessage;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        mBtAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (mBtAdapter == null) {
-            Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
-            finish();
-            return;
-        }
-        //messageListView = (ListView) findViewById(R.id.listMessage);
-        //listAdapter = new ArrayAdapter<String>(this, R.layout.message_detail);
-        //messageListView.setAdapter(listAdapter);
-        //messageListView.setDivider(null);
-        btnConnectDisconnect = (Button) findViewById(R.id.btn_select);
-        btnEffect1 = (Button) findViewById(R.id.Effect1Button);
-        btnEffect2 = (Button) findViewById(R.id.Effect2Button);
-        btnEffect3 = (Button) findViewById(R.id.Effect3Button);
-        btnEffect4 = (Button) findViewById(R.id.Effect4Button);
-        btnEffect5 = (Button) findViewById(R.id.Effect5Button);
-        btnEffect6 = (Button) findViewById(R.id.Effect6Button);
-        btnPlay = (Button) findViewById(R.id.PlayButton);
-        btnStop = (Button) findViewById(R.id.StopButton);
-        btnMusic1 = (Button) findViewById(R.id.Music1Button);
-        btnMusic2 = (Button) findViewById(R.id.Music2Button);
-        btnMusic3 = (Button) findViewById(R.id.Music3Button);
-        btnToggle1 = (ToggleButton) findViewById(R.id.toggle1Button);
-        btnToggle2 = (ToggleButton) findViewById(R.id.toggle2Button);
-        btnToggle1.setChecked(false);
-        btnToggle1.setChecked(false);
-        //edtMessage = (EditText) findViewById(R.id.sendText);
-        service_init();
-
-
-        // Handle Disconnect & Connect button
-        btnConnectDisconnect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!mBtAdapter.isEnabled()) {
-                    Log.i(TAG, "onClick - BT not enabled yet");
-                    Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-                } else {
-                    if (btnConnectDisconnect.getText().equals("Connect")) {
-
-                        //Connect button pressed, open DeviceListActivity class, with popup windows that scan for devices
-
-                        Intent newIntent = new Intent(MainActivity.this, DeviceListActivity.class);
-                        startActivityForResult(newIntent, REQUEST_SELECT_DEVICE);
-                    } else {
-                        //Disconnect button pressed
-                        if (mDevice != null) {
-                            mService.disconnect();
-
-                        }
-                    }
-                }
-            }
-        });
-        // Handle Effect1 button
-        btnEffect1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                String message = "2";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        // Handle Effect1 button
-        btnEffect2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                String message = "3";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        // Handle Effect1 button
-        btnEffect3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                String message = "4";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        // Handle Effect1 button
-        btnEffect4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                String message = "5";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        // Handle Effect1 button
-        btnEffect5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                String message = "6";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        // Handle Effect1 button
-        btnEffect6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                String message = "7";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                String message = "1";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                String message = "0";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        btnMusic1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                String message = "8";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        btnMusic2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                String message = "9";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        btnMusic3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                String message = "A";
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    //edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-
-        btnToggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    btnToggle2.setChecked(false);
-                    String message = "2";
-                    byte[] value;
-                    try {
-                        //send data to service
-                        value = message.getBytes("UTF-8");
-                        mService.writeRXCharacteristic(value);
-                        //Update the log with time stamp
-                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                        //edtMessage.setText("");
-                    } catch (UnsupportedEncodingException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-                } else {
-                    // The toggle is disabled
-                }
-            }
-        });
-
-        btnToggle2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    btnToggle1.setChecked(false);
-                    String message = "3";
-                    byte[] value;
-                    try {
-                        //send data to service
-                        value = message.getBytes("UTF-8");
-                        mService.writeRXCharacteristic(value);
-                        //Update the log with time stamp
-                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                        //edtMessage.setText("");
-                    } catch (UnsupportedEncodingException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-
-                } else {
-                    // The toggle is disabled
-                }
-            }
-        });
-        // Set initial UI state
-
-    }
-
-    //UART service connected/disconnected
-    private ServiceConnection mServiceConnection = new ServiceConnection() {
-        public void onServiceConnected(ComponentName className, IBinder rawBinder) {
-            mService = ((UartService.LocalBinder) rawBinder).getService();
-            Log.d(TAG, "onServiceConnected mService= " + mService);
-            if (!mService.initialize()) {
-                Log.e(TAG, "Unable to initialize Bluetooth");
-                finish();
-            }
-
-        }
-
-        public void onServiceDisconnected(ComponentName classname) {
-            ////     mService.disconnect(mDevice);
-            mService = null;
-        }
-    };
-
-    private Handler mHandler = new Handler() {
-        @Override
-
-        //Handler events that received from UART service 
-        public void handleMessage(Message msg) {
-
-        }
-    };
+    private Button btnConnectDisconnect, btnVibration, btnStop;
+    private ToggleButton btnEffect1, btnEffect2, btnEffect3, btnEffect4, btnEffect5,
+            btnEffect6, btnMusic1, btnMusic2, btnMusic3;
+    private MyCountDownTimer countDownTimer=null;
 
     private final BroadcastReceiver UARTStatusChangeReceiver = new BroadcastReceiver() {
 
@@ -497,7 +107,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                         Log.d(TAG, "UART_CONNECT_MSG");
                         btnConnectDisconnect.setText("Disconnect");
                         //edtMessage.setEnabled(true);
-                        btnPlay.setEnabled(true);
+                        btnVibration.setEnabled(true);
                         btnStop.setEnabled(true);
                         btnEffect1.setEnabled(true);
                         btnEffect2.setEnabled(true);
@@ -508,8 +118,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                         btnMusic1.setEnabled(true);
                         btnMusic2.setEnabled(true);
                         btnMusic3.setEnabled(true);
-                        btnToggle1.setEnabled(true);
-                        btnToggle2.setEnabled(true);
+
                         ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName() + " - ready");
                         //listAdapter.add("["+currentDateTimeString+"] Connected to: "+ mDevice.getName());
                         //	messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
@@ -526,7 +135,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                         Log.d(TAG, "UART_DISCONNECT_MSG");
                         btnConnectDisconnect.setText("Connect");
                         //edtMessage.setEnabled(false);
-                        btnPlay.setEnabled(false);
+                        btnVibration.setEnabled(false);
                         btnStop.setEnabled(false);
                         btnEffect1.setEnabled(false);
                         btnEffect2.setEnabled(false);
@@ -537,8 +146,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                         btnMusic1.setEnabled(false);
                         btnMusic2.setEnabled(false);
                         btnMusic3.setEnabled(false);
-                        btnToggle1.setEnabled(false);
-                        btnToggle2.setEnabled(false);
+
                         ((TextView) findViewById(R.id.deviceName)).setText("Not Connected");
                         //listAdapter.add("["+currentDateTimeString+"] Disconnected to: "+ mDevice.getName());
                         mState = UART_PROFILE_DISCONNECTED;
@@ -582,12 +190,33 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
         }
     };
 
-    private void service_init() {
-        Intent bindIntent = new Intent(this, UartService.class);
-        bindService(bindIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
+    private EditText edtMessage;
+    //UART service connected/disconnected
+    private ServiceConnection mServiceConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName className, IBinder rawBinder) {
+            mService = ((UartService.LocalBinder) rawBinder).getService();
+            Log.d(TAG, "onServiceConnected mService= " + mService);
+            if (!mService.initialize()) {
+                Log.e(TAG, "Unable to initialize Bluetooth");
+                finish();
+            }
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(UARTStatusChangeReceiver, makeGattUpdateIntentFilter());
-    }
+        }
+
+        public void onServiceDisconnected(ComponentName classname) {
+            ////     mService.disconnect(mDevice);
+            mService = null;
+        }
+    };
+
+    private Handler mHandler = new Handler() {
+        @Override
+
+        //Handler events that received from UART service
+        public void handleMessage(Message msg) {
+
+        }
+    };
 
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
@@ -597,6 +226,409 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
         intentFilter.addAction(UartService.ACTION_DATA_AVAILABLE);
         intentFilter.addAction(UartService.DEVICE_DOES_NOT_SUPPORT_UART);
         return intentFilter;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        mBtAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (mBtAdapter == null) {
+            Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
+        //messageListView = (ListView) findViewById(R.id.listMessage);
+        //listAdapter = new ArrayAdapter<String>(this, R.layout.message_detail);
+        //messageListView.setAdapter(listAdapter);
+        //messageListView.setDivider(null);
+        btnConnectDisconnect = (Button) findViewById(R.id.btn_select);
+        btnEffect1 = (ToggleButton) findViewById(R.id.Effect1Button);
+        btnEffect2 = (ToggleButton) findViewById(R.id.Effect2Button);
+        btnEffect3 = (ToggleButton) findViewById(R.id.Effect3Button);
+        btnEffect4 = (ToggleButton) findViewById(R.id.Effect4Button);
+        btnEffect5 = (ToggleButton) findViewById(R.id.Effect5Button);
+        btnEffect6 = (ToggleButton) findViewById(R.id.Effect6Button);
+        btnVibration = (Button) findViewById(R.id.VibrationButton);
+        btnStop = (Button) findViewById(R.id.StopButton);
+        btnMusic1 = (ToggleButton) findViewById(R.id.Music1Button);
+        btnMusic2 = (ToggleButton) findViewById(R.id.Music2Button);
+        btnMusic3 = (ToggleButton) findViewById(R.id.Music3Button);
+        btnEffect1.setChecked(false);
+        btnEffect2.setChecked(false);
+        btnEffect3.setChecked(false);
+        btnEffect4.setChecked(false);
+        btnEffect5.setChecked(false);
+        btnEffect6.setChecked(false);
+        btnMusic1.setChecked(false);
+        btnMusic2.setChecked(false);
+        btnMusic3.setChecked(false);
+        countDownTimer=new MyCountDownTimer(10000, 1000);
+        //edtMessage = (EditText) fibtnMusic1.setChecked(false);ndViewById(R.id.sendText);
+        service_init();
+
+
+
+        // Handle Disconnect & Connect button
+        btnConnectDisconnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!mBtAdapter.isEnabled()) {
+                    Log.i(TAG, "onClick - BT not enabled yet");
+                    Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                    startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+                } else {
+                    if (btnConnectDisconnect.getText().equals("CONECTAR")) {
+
+                        //Connect button pressed, open DeviceListActivity class, with popup windows that scan for devices
+
+                        Intent newIntent = new Intent(MainActivity.this, DeviceListActivity.class);
+                        startActivityForResult(newIntent, REQUEST_SELECT_DEVICE);
+                    } else {
+                        //Disconnect button pressed
+                        if (mDevice != null) {
+                            mService.disconnect();
+
+                        }
+                    }
+                }
+            }
+        });
+        // Handle Effect1 button
+        btnEffect1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnEffect2.setChecked(false);
+                    btnEffect3.setChecked(false);
+                    btnEffect4.setChecked(false);
+                    btnEffect5.setChecked(false);
+                    btnEffect6.setChecked(false);
+                    //EditText editText = (EditText) findViewById(R.id.Effect1Button);
+                    String message = "2";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+                }
+            }
+        });
+        // Handle Effect1 button
+        btnEffect2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnEffect1.setChecked(false);
+                    btnEffect3.setChecked(false);
+                    btnEffect4.setChecked(false);
+                    btnEffect5.setChecked(false);
+                    btnEffect6.setChecked(false);
+                    //EditText editText = (EditText) findViewById(R.id.Effect1Button);
+                    String message = "3";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+
+                }
+            }
+        });
+        // Handle Effect1 button
+        btnEffect3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnEffect1.setChecked(false);
+                    btnEffect2.setChecked(false);
+                    btnEffect4.setChecked(false);
+                    btnEffect5.setChecked(false);
+                    btnEffect6.setChecked(false);
+                    //EditText editText = (EditText) findViewById(R.id.Effect1Button);
+                    String message = "4";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+
+                }
+            }
+        });
+        // Handle Effect1 button
+        btnEffect4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnEffect1.setChecked(false);
+                    btnEffect2.setChecked(false);
+                    btnEffect3.setChecked(false);
+                    btnEffect5.setChecked(false);
+                    btnEffect6.setChecked(false);
+                    //EditText editText = (EditText) findViewById(R.id.Effect1Button);
+                    String message = "5";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+
+                }
+            }
+        });
+        // Handle Effect1 button
+        btnEffect5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnEffect1.setChecked(false);
+                    btnEffect2.setChecked(false);
+                    btnEffect3.setChecked(false);
+                    btnEffect4.setChecked(false);
+                    btnEffect6.setChecked(false);
+                    //EditText editText = (EditText) findViewById(R.id.Effect1Button);
+                    String message = "6";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+
+                }
+            }
+        });
+        // Handle Effect1 button
+        btnEffect6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnEffect1.setChecked(false);
+                    btnEffect2.setChecked(false);
+                    btnEffect3.setChecked(false);
+                    btnEffect4.setChecked(false);
+                    btnEffect5.setChecked(false);
+                    //EditText editText = (EditText) findViewById(R.id.Effect1Button);
+                    String message = "7";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+
+                }
+            }
+        });
+
+        btnVibration.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View v) {
+                //EditText editText = (EditText) findViewById(R.id.PlayButton);
+                String message = "1";
+                byte[] value;
+                try {
+                    //send data to service
+                    value = message.getBytes("UTF-8");
+                    mService.writeRXCharacteristic(value);
+                    //Update the log with time stamp
+                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                    //edtMessage.setText("");
+                } catch (UnsupportedEncodingException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        btnStop.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View v) {
+                btnEffect1.setChecked(false);
+                btnEffect2.setChecked(false);
+                btnEffect3.setChecked(false);
+                btnEffect4.setChecked(false);
+                btnEffect5.setChecked(false);
+                btnEffect6.setChecked(false);
+                //EditText editText = (EditText) findViewById(R.id.PlayButton);
+                String message = "0";
+                byte[] value;
+                try {
+                    //send data to service
+                    value = message.getBytes("UTF-8");
+                    mService.writeRXCharacteristic(value);
+                    //Update the log with time stamp
+                    //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                    //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                    //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                    //edtMessage.setText("");
+                } catch (UnsupportedEncodingException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        btnMusic1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnMusic2.setChecked(false);
+                    btnMusic3.setChecked(false);
+                    countDownTimer.start(); //Automatically set checked btnMusic1 to false
+                    //EditText editText = (EditText) findViewById(R.id.PlayButton);
+                    String message = "8";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+
+                }
+            }
+        });
+        btnMusic2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnMusic1.setChecked(false);
+                    btnMusic3.setChecked(false);
+                    countDownTimer.start(); //Automatically set checked btnMusic2 to false
+                    //EditText editText = (EditText) findViewById(R.id.PlayButton);
+                    String message = "9";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+
+                }
+            }
+        });
+
+
+        btnMusic3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btnMusic1.setChecked(false);
+                    btnMusic2.setChecked(false);
+                    countDownTimer.start(); //Automatically set checked btnMusic3 to false
+                    //EditText editText = (EditText) findViewById(R.id.PlayButton);
+                    String message = "A";
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = message.getBytes("UTF-8");
+                        mService.writeRXCharacteristic(value);
+                        //Update the log with time stamp
+                        //String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                        //listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
+                        //messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
+                        //edtMessage.setText("");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } else {
+
+                }
+            }
+        });
+        // Set initial UI state
+
+    }
+
+    private void service_init() {
+        Intent bindIntent = new Intent(this, UartService.class);
+        bindService(bindIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(UARTStatusChangeReceiver, makeGattUpdateIntentFilter());
     }
 
     @Override
@@ -724,4 +756,33 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     .show();
         }
     }
+
+
+    public class MyCountDownTimer extends CountDownTimer {
+        private long starttime;
+        private boolean isrunning = false;
+
+        public MyCountDownTimer(long startTime, long interval) {
+
+            super(startTime, interval);
+            this.starttime = startTime;
+        }
+        @Override
+        public void onTick(long millisUntilFinished)
+        {
+            //do nothing
+        }
+
+
+        @Override
+        public void onFinish() {
+            btnMusic1.setChecked(false);
+            btnMusic2.setChecked(false);
+            btnMusic3.setChecked(false);
+
+        }
+
+
+    }
 }
+

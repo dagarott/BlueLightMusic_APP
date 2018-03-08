@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bg4"
+    >
 
 
     <android.support.constraint.ConstraintLayout
@@ -15,6 +17,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteY="610dp">
+
 
         <TextView
             android:id="@+id/deviceName"
@@ -50,179 +53,201 @@
 
         <Button
             android:id="@+id/btn_select"
-            android:layout_width="0dp"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:padding="12dp"
-            android:text="Connect"
+            android:text="CONECTAR"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.917" />
+            app:layout_constraintVertical_bias="0.016" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Effect1Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/number1"
             android:enabled="false"
+            android:textOff="1"
+            android:textOn="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/Effect2Button"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024" />
+            app:layout_constraintVertical_bias="0.224" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Effect2Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/number2"
             android:enabled="false"
+            android:textOff="2"
+            android:textOn="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/Effect3Button"
             app:layout_constraintStart_toEndOf="@+id/Effect1Button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024" />
+            app:layout_constraintVertical_bias="0.224" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Effect3Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/number3"
             android:enabled="false"
+            android:textOff="3"
+            android:textOn="3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/Effect4Button"
             app:layout_constraintStart_toEndOf="@+id/Effect2Button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024" />
+            app:layout_constraintVertical_bias="0.224" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Effect4Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/number4"
             android:enabled="false"
+            android:textOff="4"
+            android:textOn="4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/Effect5Button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/Effect3Button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024" />
+            app:layout_constraintVertical_bias="0.224" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Effect5Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/number5"
             android:enabled="false"
+            android:textOff="5"
+            android:textOn="5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/Effect6Button"
             app:layout_constraintStart_toEndOf="@+id/Effect4Button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024" />
+            app:layout_constraintVertical_bias="0.224" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Effect6Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/number6"
             android:enabled="false"
+            android:textOff="6"
+            android:textOn="6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.879"
             app:layout_constraintStart_toEndOf="@+id/Effect5Button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024" />
+            app:layout_constraintVertical_bias="0.224" />
 
         <Button
             android:id="@+id/StopButton"
-            style="@android:style/Widget.DeviceDefault.Button.Borderless"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Inset"
             android:layout_width="70dp"
             android:layout_height="42dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="0.31"
-            android:background="?android:attr/detailsElementBackground"
             android:enabled="false"
             android:text="STOP"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.731"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.234" />
-
-        <Button
-            android:id="@+id/PlayButton"
-            style="@android:style/Widget.DeviceDefault.Button.Borderless"
-            android:layout_width="70dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="0.31"
-            android:background="?android:attr/detailsElementBackground"
-            android:enabled="false"
-            android:text="PLAY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/StopButton"
-            app:layout_constraintHorizontal_bias="0.534"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.234" />
+            app:layout_constraintVertical_bias="0.364" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Music1Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="24dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/number1"
             android:enabled="false"
+            android:textOff="1"
+            android:textOn="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/Music2Button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.44" />
+            app:layout_constraintVertical_bias="0.614" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Music2Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:background="@drawable/number2"
             android:enabled="false"
+            android:textOff="2"
+            android:textOn="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/Music3Button"
             app:layout_constraintHorizontal_bias="0.481"
@@ -230,77 +255,94 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/Music1Button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.442" />
+            app:layout_constraintVertical_bias="0.61" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Music3Button"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="24dp"
-            android:background="@drawable/number3"
             android:enabled="false"
+            android:textOff="3"
+            android:textOn="3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/Music2Button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.443" />
+            app:layout_constraintVertical_bias="0.61" />
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="16dp"
             android:text="EFECTOS DE LUZ:"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.126" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="63dp"
-            android:layout_height="18dp"
+            android:layout_width="75dp"
+            android:layout_height="26dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
             android:text="MUSICA:"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.332" />
+            app:layout_constraintVertical_bias="0.521" />
 
-        <ToggleButton
-            android:id="@+id/toggle1Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="108dp"
+            android:layout_height="25dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="ToggleButton"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/toggle2Button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.639" />
-
-        <ToggleButton
-            android:id="@+id/toggle2Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:text="ToggleButton"
+            android:text="VIBRACIÓN:"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/toggle1Button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.634" />
+            app:layout_constraintVertical_bias="0.757" />
+
+        <Button
+            android:id="@+id/VibrationButton"
+            style="@android:style/Widget.DeviceDefault.Light.Button.Inset"
+            android:layout_width="70dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="412dp"
+            android:layout_weight="0.31"
+            android:enabled="false"
+            android:text="ON"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </android.support.constraint.ConstraintLayout>

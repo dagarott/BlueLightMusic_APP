@@ -22,17 +22,17 @@
   -->
 <resources>
 
-    <string name="app_name">nRF UART v2.0</string>
-    <string name="device">Device:</string>
-    <string name="no_device">&lt;Select a device&gt;</string>
-    <string name="select_device">Select a device</string>
+    <string name="app_name">BlueLightMusic</string>
+    <string name="device">Dispositivo:</string>
+    <string name="no_device">&lt;Selecciona un dispositivo&gt;</string>
+    <string name="select_device">Selecciona un dispositivo</string>
     <string name="status">Status</string>
     <string name="llsWrite">LinkLossAlert</string>
     <string name="iasWrite">ImmediateAlert</string>
-    <string name="scanning">Scanning for devices...</string>
+    <string name="scanning">Escaneando dispositivos...</string>
     <string name="no_ble_devices">No LE devices found.</string>
-    <string name="connected">Connected</string>
-    <string name="disconnected">Not connected</string>
+    <string name="connected">Conectado</string>
+    <string name="disconnected">No conectado</string>
     <string name="ready">Ready</string>
     <string name="disconnect">Disconnect</string>
     <string name="connect">connect</string>
@@ -62,12 +62,12 @@
     <string name="Readdummy">D Read</string>
     <string name="removeBond">Remove Bond</string>
     <string name="paired">paired</string>
-    <string name="popup_title">Quit nRF UART</string>
-    <string name="popup_message">Do you want to quit this Application?</string>
-    <string name="popup_yes">YES</string>
+    <string name="popup_title">Salir de BlueLightMusicT</string>
+    <string name="popup_message">Quieres salir de la aplicación?</string>
+    <string name="popup_yes">SI</string>
     <string name="popup_no">NO</string>
     <string name="ble_not_supported">Bluetooth Low Energy not supported</string>
-    <string name="scan">Scan</string>
-    <string name="cancel">Cancel</string>
+    <string name="scan">Escanear</string>
+    <string name="cancel">Cancelar</string>
     
 </resources>
