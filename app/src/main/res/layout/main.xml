@@ -1,350 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bg4"
-    >
+    android:orientation="vertical">
 
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="610dp">
-
-
-        <TextView
-            android:id="@+id/deviceName"
-            android:layout_width="wrap_content"
-            android:layout_height="19dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/no_device"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/deviceLabel"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.985" />
-
-        <TextView
-            android:id="@+id/deviceLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/device"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/deviceName"
-            app:layout_constraintHorizontal_bias="0.222"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.985" />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_select"
-            android:layout_width="360dp"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            android:padding="12dp"
-            android:text="CONECTAR"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.016" />
+            android:text="@string/connect" />
 
-        <ToggleButton
-            android:id="@+id/Effect1Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:enabled="false"
-            android:textOff="1"
-            android:textOn="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Effect2Button"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224" />
+    </LinearLayout>
 
-        <ToggleButton
-            android:id="@+id/Effect2Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:enabled="false"
-            android:textOff="2"
-            android:textOn="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Effect3Button"
-            app:layout_constraintStart_toEndOf="@+id/Effect1Button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224" />
-
-        <ToggleButton
-            android:id="@+id/Effect3Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:enabled="false"
-            android:textOff="3"
-            android:textOn="3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Effect4Button"
-            app:layout_constraintStart_toEndOf="@+id/Effect2Button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224" />
-
-        <ToggleButton
-            android:id="@+id/Effect4Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:enabled="false"
-            android:textOff="4"
-            android:textOn="4"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Effect5Button"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/Effect3Button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224" />
-
-        <ToggleButton
-            android:id="@+id/Effect5Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:enabled="false"
-            android:textOff="5"
-            android:textOn="5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Effect6Button"
-            app:layout_constraintStart_toEndOf="@+id/Effect4Button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224" />
-
-        <ToggleButton
-            android:id="@+id/Effect6Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:enabled="false"
-            android:textOff="6"
-            android:textOn="6"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.879"
-            app:layout_constraintStart_toEndOf="@+id/Effect5Button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224" />
-
-        <Button
-            android:id="@+id/StopButton"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Inset"
-            android:layout_width="70dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="0.31"
-            android:enabled="false"
-            android:text="STOP"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.364" />
-
-        <ToggleButton
-            android:id="@+id/Music1Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:enabled="false"
-            android:textOff="1"
-            android:textOn="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Music2Button"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.614" />
-
-        <ToggleButton
-            android:id="@+id/Music2Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:enabled="false"
-            android:textOff="2"
-            android:textOn="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Music3Button"
-            app:layout_constraintHorizontal_bias="0.481"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/Music1Button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.61" />
-
-        <ToggleButton
-            android:id="@+id/Music3Button"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="24dp"
-            android:enabled="false"
-            android:textOff="3"
-            android:textOn="3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/Music2Button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.61" />
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/LedEffects"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="top"/>
+
+        <GridLayout
+            android:id="@+id/gridLayout1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="16dp"
-            android:text="EFECTOS DE LUZ:"
-            android:textAppearance="?android:attr/textAppearanceMediumInverse"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.126" />
+            android:columnCount="4"
+            android:orientation="horizontal"
+            android:rowCount="4"
+            android:layout_gravity="end">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="75dp"
-            android:layout_height="26dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
-            android:text="MUSICA:"
-            android:textAppearance="?android:attr/textAppearanceMediumInverse"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.521" />
+            <ToggleButton
+                android:id="@+id/Effect1Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/effect1"
+                android:textOn="@string/effect1"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="108dp"
-            android:layout_height="25dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="VIBRACIÓN:"
-            android:textAppearance="?android:attr/textAppearanceMediumInverse"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.757" />
+            <ToggleButton
+                android:id="@+id/Effect2Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/effect2"
+                android:textOn="@string/effect2"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/VibrationButton"
-            style="@android:style/Widget.DeviceDefault.Light.Button.Inset"
-            android:layout_width="70dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="412dp"
-            android:layout_weight="0.31"
-            android:enabled="false"
-            android:text="ON"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ToggleButton
+                android:id="@+id/Effect3Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_column="2"
+                android:layout_row="1"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/effect3"
+                android:textOn="@string/effect3"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/Effect4Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/effect4"
+                android:textOn="@string/effect4"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/Effect5Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/effect5"
+                android:textOn="@string/effect5"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/Effect6Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_column="2"
+                android:layout_row="2"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/effect6"
+                android:textOn="@string/effect6"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/StopButton"
+                style="@android:style/Widget.DeviceDefault.Button"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_column="0"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:layout_row="3"
+                android:enabled="false"
+                android:text="@string/stop_effect" />
+        </GridLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <GridLayout
+            android:id="@+id/gridLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/Music1Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/music1"
+                android:textOn="@string/music1"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/Music3Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/music3"
+                android:textOn="@string/music3"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/Music2Button"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textOff="@string/music2"
+                android:textOn="@string/music2"
+                android:textStyle="bold" />
 
 
-    </android.support.constraint.ConstraintLayout>
+        </GridLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/deviceName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/no_device"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/black" />
+
+
+    <TextView
+        android:id="@+id/deviceLabel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/device"
+        android:textColor="@color/black" />
+
+
+    <Button
+        android:id="@+id/VibrationButton"
+        style="@android:style/Widget.DeviceDefault.Light.Button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="412dp"
+        android:enabled="false"
+        android:text="@string/HapticMotorOn" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="SONIDOS:"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+
+
+
+
 
 </LinearLayout>

@@ -304,7 +304,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnEffect5.setChecked(false);
                     btnEffect6.setChecked(false);
                     //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                    String message = "2";
+                    String message = "[2]";
                     byte[] value;
                     try {
                         //send data to service
@@ -334,7 +334,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnEffect5.setChecked(false);
                     btnEffect6.setChecked(false);
                     //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                    String message = "3";
+                    String message = "[3]";
                     byte[] value;
                     try {
                         //send data to service
@@ -365,7 +365,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnEffect5.setChecked(false);
                     btnEffect6.setChecked(false);
                     //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                    String message = "4";
+                    String message = "[4]";
                     byte[] value;
                     try {
                         //send data to service
@@ -396,7 +396,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnEffect5.setChecked(false);
                     btnEffect6.setChecked(false);
                     //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                    String message = "5";
+                    String message = "[5]";
                     byte[] value;
                     try {
                         //send data to service
@@ -427,7 +427,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnEffect4.setChecked(false);
                     btnEffect6.setChecked(false);
                     //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                    String message = "6";
+                    String message = "[6]";
                     byte[] value;
                     try {
                         //send data to service
@@ -458,7 +458,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnEffect4.setChecked(false);
                     btnEffect5.setChecked(false);
                     //EditText editText = (EditText) findViewById(R.id.Effect1Button);
-                    String message = "7";
+                    String message = "[7]";
                     byte[] value;
                     try {
                         //send data to service
@@ -486,7 +486,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
             @Override
             public void onClick(View v) {
                 //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                String message = "1";
+                String message = "[B]";
                 byte[] value;
                 try {
                     //send data to service
@@ -516,7 +516,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                 btnEffect5.setChecked(false);
                 btnEffect6.setChecked(false);
                 //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                String message = "0";
+                String message = "[0]";
                 byte[] value;
                 try {
                     //send data to service
@@ -541,7 +541,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnMusic3.setChecked(false);
                     countDownTimer.start(); //Automatically set checked btnMusic1 to false
                     //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                    String message = "8";
+                    String message = "[8]";
                     byte[] value;
                     try {
                         //send data to service
@@ -569,7 +569,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnMusic3.setChecked(false);
                     countDownTimer.start(); //Automatically set checked btnMusic2 to false
                     //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                    String message = "9";
+                    String message = "[9]";
                     byte[] value;
                     try {
                         //send data to service
@@ -599,7 +599,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                     btnMusic2.setChecked(false);
                     countDownTimer.start(); //Automatically set checked btnMusic3 to false
                     //EditText editText = (EditText) findViewById(R.id.PlayButton);
-                    String message = "A";
+                    String message = "[A]";
                     byte[] value;
                     try {
                         //send data to service

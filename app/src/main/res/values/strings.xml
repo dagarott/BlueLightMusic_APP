@@ -35,7 +35,7 @@
     <string name="disconnected">No conectado</string>
     <string name="ready">Ready</string>
     <string name="disconnect">Disconnect</string>
-    <string name="connect">connect</string>
+    <string name="connect">CONECTAR</string>
     <string name="unpair">unpair</string>
     <string name="pair">pair</string>
     <string name="RadioButton1">Alert level high</string>
@@ -69,5 +69,17 @@
     <string name="ble_not_supported">Bluetooth Low Energy not supported</string>
     <string name="scan">Escanear</string>
     <string name="cancel">Cancelar</string>
+    <string name="effect1">1</string>
+    <string name="effect2">2</string>
+    <string name="effect3">3</string>
+    <string name="effect4">4</string>
+    <string name="effect5">5</string>
+    <string name="effect6">6</string>
+    <string name="music1">1</string>
+    <string name="music2">2</string>
+    <string name="music3">3</string>
+    <string name="stop_effect">STOP</string>
+    <string name="HapticMotorOn">ON</string>
+    <string name="LedEffects">Efectos de Luz:</string>
     
 </resources>

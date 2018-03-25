@@ -35,13 +35,14 @@
     <application 
 
         android:label="BlueLightMagic"
-        android:theme="@android:style/Theme.Holo.Light"
-        android:icon="@drawable/nrfuart_hdpi_icon">
+        android:theme="@android:style/Theme.Material"
+        >
         <activity
             android:name=".MainActivity"
             android:label="BlueLightMagic"
             android:windowSoftInputMode="stateHidden"
-            android:configChanges="keyboardHidden|orientation|screenSize">
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
